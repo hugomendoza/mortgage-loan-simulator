@@ -2,7 +2,7 @@
 CREATE TYPE "public"."MortgageStatus" AS ENUM ('APPROVED', 'REFER', 'DECLINE');
 
 -- CreateTable
-CREATE TABLE "public"."Mortgage" (
+CREATE TABLE "public"."mortgage" (
     "id" TEXT NOT NULL,
     "monthly_income" DECIMAL(65,30) NOT NULL,
     "monthly_debts" DECIMAL(65,30) NOT NULL,
@@ -14,5 +14,5 @@ CREATE TABLE "public"."Mortgage" (
     "status" "public"."MortgageStatus" NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Mortgage_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "mortgage_pkey" PRIMARY KEY ("id")
 );

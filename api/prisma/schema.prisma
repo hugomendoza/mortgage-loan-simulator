@@ -15,16 +15,18 @@ datasource db {
 
 
 model Mortgage {
-  id              String @id @default(uuid())
-  monthly_income  Decimal
-  monthly_debts   Decimal
-  loan_amount     Decimal
-  property_value  Decimal
-  credit_score    Int
-  debt_to_income  Decimal
-  loan_to_value   Decimal
+  id              String      @id @default(uuid())
+  monthlyIncome   Decimal     @map("monthly_income")
+  monthlyDebts    Decimal     @map("monthly_debts")
+  loanAmount      Decimal     @map("loan_amount")
+  propertyValue   Decimal     @map("property_value")
+  creditScore     Int         @map("credit_score")
+  debtToIncome    Decimal     @map("debt_to_income")
+  loanToValue     Decimal     @map("loan_to_value")
   status          MortgageStatus
-  created_at       DateTime        @default(now())
+  createdAt       DateTime    @default(now()) @map("created_at")
+
+  @@map("mortgage")
 }
 
 enum MortgageStatus {
