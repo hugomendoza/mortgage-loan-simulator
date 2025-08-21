@@ -1,4 +1,4 @@
-export class GenerateSimulationDto {
+export class CreateMortgageDto {
   private constructor(
     public readonly monthlyIncome: number,
     public readonly monthlyDebts: number,
@@ -7,9 +7,7 @@ export class GenerateSimulationDto {
     public readonly creditScore: number
   ) {}
 
-  static create(props: {
-    [key: string]: any;
-  }): [string?, GenerateSimulationDto?] {
+  static create(props: { [key: string]: any }): [string?, CreateMortgageDto?] {
     const {
       monthlyIncome,
       monthlyDebts,
@@ -31,7 +29,7 @@ export class GenerateSimulationDto {
 
     return [
       undefined,
-      new GenerateSimulationDto(
+      new CreateMortgageDto(
         monthlyIncome,
         monthlyDebts,
         loanAmount,
