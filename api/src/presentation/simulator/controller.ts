@@ -19,9 +19,15 @@ export class MortgageController {
     if (error) return res.status(400).json({ error });
 
     this.mortgageService
-      .createToken(createMortgageDto!)
+      .createMortgage(createMortgageDto!)
       .then((mortgage) => res.status(201).json(mortgage))
       .catch((error) => this.handleError(error, res));
   };
+
+  getMortgages = (req: Request, res: Response) => {
+    this.mortgageService
+      .getMortgages()
+      .then((mortgages) => res.status(200).json(mortgages))
+      .catch((error) => this.handleError(error, res));
+  };
 }
-1;

@@ -10,7 +10,7 @@ import { calculateStatus } from '../../config';
 export class MortgageService {
   constructor() {}
 
-  async createToken(
+  async createMortgage(
     createMortgageDto: CreateMortgageDto
   ): Promise<MortgageResponseDto> {
     try {
@@ -47,6 +47,22 @@ export class MortgageService {
       const mortgageEntity = MortgageEntity.fromObject(mortgage);
 
       return MortgageResponseDto.fromEntity(mortgageEntity);
+    } catch (error) {
+      if (error instanceof CustomError) {
+        throw error;
+      }
+      console.error(error);
+      throw CustomError.internalServer('Error interno del servidor');
+    }
+  }
+
+  async getMortgages(): Promise<MortgageResponseDto[]> {
+    try {
+      const mortgages = await prisma.mortgage.findMany();
+
+      return mortgages.map((mortgage) =>
+        MortgageResponseDto.fromEntity(MortgageEntity.fromObject(mortgage))
+      );
     } catch (error) {
       if (error instanceof CustomError) {
         throw error;

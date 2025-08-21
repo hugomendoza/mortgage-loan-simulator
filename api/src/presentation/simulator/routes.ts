@@ -9,6 +9,7 @@ export class MortgageRoutes {
     const controller = new MortgageController(mortgageService);
 
     router.post('/', controller.createMortgage);
+    router.get('/', controller.getMortgages);
     return router;
   }
 }
