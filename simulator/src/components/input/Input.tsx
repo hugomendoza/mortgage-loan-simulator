@@ -21,7 +21,7 @@ export const Input = ({
       {label && (
         <label
           htmlFor={id}
-          className='block text-sm mb-2 text-slate-500'>
+          className='block text-sm mb-1 text-slate-500'>
           {label}
         </label>
       )}
@@ -30,7 +30,7 @@ export const Input = ({
           id={id}
           name={id}
           className={tw(
-            `focus-visible:outline-none h-10 px-4 border border-slate-300 focus:ring-0 focus-visible:ring-0 rounded-lg placeholder:text-gray-400 text-slate-700 text-sm ${
+            `focus-visible:outline-none h-10 px-3 border border-slate-300 focus:ring-0 focus-visible:ring-0 rounded-lg placeholder:text-gray-400 text-slate-700 text-sm ${
               error ? 'border-red-500' : ''
             }`,
             className

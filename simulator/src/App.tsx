@@ -1,9 +1,10 @@
+import { Form } from './components';
 import { Layout } from './layout/Layout';
 
 function App() {
   return (
     <Layout>
-      <section>formulario de envío</section>
+      <Form />
       <section>status de los creditos</section>
     </Layout>
   );
