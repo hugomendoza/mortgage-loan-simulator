@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  scroll-behavior: smooth;
+
+  background-color: #f9fafb;
+
+  font-size: clamp(0.875rem, 0.2vw + 0.9rem, 1.1rem);
+}
+
+@utility container {
+  width: min(768px, 95%);
+  margin: 0 auto;
+}
