@@ -4,7 +4,8 @@ export class CreateMortgageDto {
     public readonly monthlyDebts: number,
     public readonly loanAmount: number,
     public readonly propertyValue: number,
-    public readonly creditScore: number
+    public readonly creditScore: number,
+    public readonly occupancyType: string
   ) {}
 
   static create(props: { [key: string]: any }): [string?, CreateMortgageDto?] {
@@ -14,6 +15,7 @@ export class CreateMortgageDto {
       loanAmount,
       propertyValue,
       creditScore,
+      occupancyType,
     } = props;
 
     if (monthlyIncome === undefined || monthlyIncome === null)
@@ -26,6 +28,7 @@ export class CreateMortgageDto {
       return ['The property value is required'];
     if (creditScore === undefined || creditScore === null)
       return ['The credit score is required'];
+    if (!occupancyType) return ['The occupancy is required'];
 
     return [
       undefined,
@@ -34,7 +37,8 @@ export class CreateMortgageDto {
         monthlyDebts,
         loanAmount,
         propertyValue,
-        creditScore
+        creditScore,
+        occupancyType
       ),
     ];
   }

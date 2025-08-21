@@ -24,6 +24,8 @@ model Mortgage {
   debtToIncome    Decimal     @map("debt_to_income")
   loanToValue     Decimal     @map("loan_to_value")
   status          MortgageStatus
+  occupancyType   String      @map("occupancy_type")
+  reasons         String[]    @map("reasons")
   createdAt       DateTime    @default(now()) @map("created_at")
 
   @@map("mortgage")

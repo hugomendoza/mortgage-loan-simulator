@@ -5,7 +5,7 @@ import {
   MortgageEntity,
   MortgageResponseDto,
 } from '../../domain';
-import { calculateStatus } from '../../config';
+import { calculateStatusWithReasons } from '../../config';
 
 export class MortgageService {
   constructor() {}
@@ -20,12 +20,13 @@ export class MortgageService {
         loanAmount,
         propertyValue,
         creditScore,
+        occupancyType,
       } = createMortgageDto;
 
       const debtToIncome = monthlyDebts / monthlyIncome;
       const loanToValue = loanAmount / propertyValue;
 
-      const statusMortgage = calculateStatus({
+      const { reasons, status } = calculateStatusWithReasons({
         creditScore,
         debtToIncome,
         loanToValue,
@@ -40,7 +41,9 @@ export class MortgageService {
           monthlyDebts,
           monthlyIncome,
           propertyValue,
-          status: statusMortgage,
+          occupancyType,
+          status,
+          reasons,
         },
       });
 

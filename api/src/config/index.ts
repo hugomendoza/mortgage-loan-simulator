@@ -1,2 +1,2 @@
-export * from './calculateStatus';
+export * from './calculateStatusWithReasons';
 export * from './envs';

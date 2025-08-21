@@ -13,6 +13,8 @@ export class MortgageEntity {
     public debtToIncome: number,
     public loanToValue: number,
     public status: MortgageStatus,
+    public occupancyType: string,
+    public reasons: string[],
     public createdAt: Date
   ) {}
 
@@ -27,6 +29,8 @@ export class MortgageEntity {
       debtToIncome,
       loanToValue,
       status,
+      occupancyType,
+      reasons,
       createdAt,
     } = object;
 
@@ -54,10 +58,6 @@ export class MortgageEntity {
       throw CustomError.badRequest('The credit score is missing');
     }
 
-    if (creditScore === null) {
-      throw CustomError.badRequest('The credit score is missing');
-    }
-
     if (debtToIncome === null) {
       throw CustomError.badRequest('The debt to income is missing');
     }
@@ -68,6 +68,14 @@ export class MortgageEntity {
 
     if (!status) {
       throw CustomError.badRequest('The status is missing');
+    }
+
+    if (!occupancyType) {
+      throw CustomError.badRequest('The occupancy is missing');
+    }
+
+    if (reasons === null) {
+      throw CustomError.badRequest('The reasons is missing');
     }
 
     if (!createdAt) {
@@ -84,6 +92,8 @@ export class MortgageEntity {
       debtToIncome,
       loanToValue,
       status,
+      occupancyType,
+      reasons,
       createdAt
     );
   }

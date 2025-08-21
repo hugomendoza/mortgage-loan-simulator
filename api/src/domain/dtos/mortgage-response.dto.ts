@@ -6,6 +6,7 @@ export class MortgageResponseDto {
     public readonly debtToIncome: number,
     public readonly loanToValue: number,
     public readonly status: MortgageStatus,
+    public readonly reasons: string[],
     public readonly createdAt: Date
   ) {}
 
@@ -14,6 +15,7 @@ export class MortgageResponseDto {
     debtToIncome: number;
     loanToValue: number;
     status: MortgageStatus;
+    reasons: string[];
     createdAt: Date;
   }): MortgageResponseDto {
     return new MortgageResponseDto(
@@ -21,6 +23,7 @@ export class MortgageResponseDto {
       entity.debtToIncome,
       entity.loanToValue,
       entity.status,
+      entity.reasons,
       entity.createdAt
     );
   }
