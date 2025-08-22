@@ -2,12 +2,12 @@ import api from '../api/api';
 import type { Mortgage } from '../interfaces';
 
 interface Args {
-  monthlyIncome: Number;
-  monthlyDebts: Number;
-  loanAmount: Number;
-  propertyValue: Number;
-  creditScore: Number;
-  occupancyType: String;
+  monthlyIncome: number;
+  monthlyDebts: number;
+  loanAmount: number;
+  propertyValue: number;
+  creditScore: number;
+  occupancyType: string;
 }
 
 export const createMortgage = async (args: Args) => {

@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const registerDataSchema = z.object({
+export const mortgageSchema = z.object({
   monthlyIncome: z.string().min(4, { message: 'Enter the monthly income' }),
   monthlyDebts: z.string().min(4, { message: 'Enter the monthly debts' }),
   loanAmount: z.string().min(4, { message: 'Enter the loan amount' }),
@@ -9,4 +9,4 @@ export const registerDataSchema = z.object({
   occupancyType: z.string().min(1, { message: 'Enter the occupation' }),
 });
 
-export type RegisterData = z.infer<typeof registerDataSchema>;
+export type MortgageSchema = z.infer<typeof mortgageSchema>;
