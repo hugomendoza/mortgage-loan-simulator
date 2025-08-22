@@ -5,7 +5,13 @@ import { tw } from '../../utils';
 
 type ButtonProps = ComponentProps<'button'> & {
   loading?: boolean;
-  variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'icon';
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'destructive'
+    | 'outline'
+    | 'icon'
+    | 'link';
 };
 
 export const Button = ({
