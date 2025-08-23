@@ -6,4 +6,5 @@ export * from './credits/Credits';
 export * from './form/Form';
 export * from './header/Header';
 export * from './input/Input';
+export * from './loader/Loader';
 export * from './mortgages/Mortgages';
