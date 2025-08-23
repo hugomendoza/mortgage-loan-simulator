@@ -11,7 +11,7 @@ export const badgeStyles = cva(
       },
     },
     defaultVariants: {
-      variant: 'approved',
+      variant: 'refer',
     },
   }
 );

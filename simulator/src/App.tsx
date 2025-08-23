@@ -1,32 +1,26 @@
+import { Suspense, lazy } from 'react';
 import { Toaster } from 'sonner';
-import { Alert, Credits, Form, Loader } from './components';
-import { Layout } from './layout/Layout';
-import { useFetch } from './hooks';
+import { Loader } from './components';
+
+const Layout = lazy(() => import('./layout/Layout'));
+const Form = lazy(() => import('./components/form/Form'));
+const Credits = lazy(() => import('./components/credits/Credits'));
 
 function App() {
-  const { loading, error } = useFetch();
-
-  if (loading)
-    return (
-      <div className='container py-4 min-h-dvh grid place-content-center'>
-        <Loader />
-      </div>
-    );
-
-  if (error)
-    return (
-      <div className='container py-4 min-h-dvh grid place-content-center'>
-        <Alert message='We have a problem. Try again' />
-      </div>
-    );
-
   return (
     <>
       <Toaster position='top-right' />
-      <Layout>
-        <Form />
-        <Credits />
-      </Layout>
+      <Suspense
+        fallback={
+          <div className='container py-4 min-h-dvh grid place-content-center'>
+            <Loader />
+          </div>
+        }>
+        <Layout>
+          <Form />
+          <Credits />
+        </Layout>
+      </Suspense>
     </>
   );
 }

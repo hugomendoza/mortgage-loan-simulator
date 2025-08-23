@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '../button/Button';
 
-import type { Mortgage } from '../../interfaces';
+import type { Mortgage, Status } from '../../interfaces';
 import { Badge } from '../badge/Badgde';
 
 export function Card({ debtToIncome, loanToValue, status, reasons }: Mortgage) {
@@ -14,16 +14,16 @@ export function Card({ debtToIncome, loanToValue, status, reasons }: Mortgage) {
           <p>Status</p>
           <Badge
             status={status}
-            variant={status}
+            variant={status.toLowerCase() as Status}
           />
         </div>
         <div>
           <p>DTI</p>
-          <p className='font-bold'>{debtToIncome || '-'}</p>
+          <p className='font-bold'>{debtToIncome.slice(0, 4) || '-'}</p>
         </div>
         <div>
           <p>LTV</p>
-          <p className='font-bold'>{loanToValue || '-'}</p>
+          <p className='font-bold'>{loanToValue.slice(0, 4) || '-'}</p>
         </div>
         <div className='h-full grid place-content-center'>
           <Button
@@ -46,9 +46,11 @@ export function Card({ debtToIncome, loanToValue, status, reasons }: Mortgage) {
             </li>
           ))}
         </ul>
-        <div className='px-4'>
-          <Button variant='outline'>Send to review</Button>
-        </div>
+        {status.toLowerCase() === 'refer' && (
+          <div className='px-4'>
+            <Button variant='outline'>Send to review</Button>
+          </div>
+        )}
       </div>
     </li>
   );

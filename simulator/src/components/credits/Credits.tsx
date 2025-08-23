@@ -2,7 +2,7 @@ import { useMortgageSimulator } from '../../store/store';
 import { Alert } from '../alert/Alert';
 import { Mortgages } from '../mortgages/Mortgages';
 
-export function Credits() {
+export default function Credits() {
   const { mortgages } = useMortgageSimulator();
 
   return (

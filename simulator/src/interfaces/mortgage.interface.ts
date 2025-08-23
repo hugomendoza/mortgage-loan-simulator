@@ -1,4 +1,4 @@
-type Status = 'approved' | 'decline' | 'refer';
+export type Status = 'approved' | 'decline' | 'refer';
 
 export interface Mortgage {
   id: string;

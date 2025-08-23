@@ -2,7 +2,7 @@ import { useCreateMortgage } from '../../hooks';
 import { Button } from '../button/Button';
 import { Input } from '../input/Input';
 
-export function Form() {
+export default function Form() {
   const {
     errors,
     loading,

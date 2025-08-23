@@ -3,8 +3,10 @@ import { createMortgage } from '../services';
 import { useForm } from './useForm';
 
 import { mortgageSchema, type MortgageSchema } from '../interfaces';
-import { cleanCurrency } from '../utils';
+import { cleanCurrency, onCaptureErrorsResponse } from '../utils';
 import { useZodErrors } from './useZod';
+import { AxiosError } from 'axios';
+import { useMortgageSimulator } from '../store/store';
 
 export function useCreateMortgage() {
   const mortgage = {
@@ -17,6 +19,7 @@ export function useCreateMortgage() {
   } as MortgageSchema;
 
   const [loading, setLoading] = useState<boolean>(false);
+  const { addMortgage } = useMortgageSimulator();
 
   const {
     formState,
@@ -41,11 +44,18 @@ export function useCreateMortgage() {
     setLoading(true);
     try {
       mortgageSchema.parse(formState);
-      await createMortgage(mortgageData);
+      const { data } = await createMortgage(mortgageData);
+      addMortgage(data);
       onResetForm();
       resetErrors();
     } catch (error) {
       validateFields(error as Error);
+      if (error instanceof AxiosError) {
+        onCaptureErrorsResponse(
+          error as Error,
+          'Connection failed with the server'
+        );
+      }
     } finally {
       setLoading(false);
     }
