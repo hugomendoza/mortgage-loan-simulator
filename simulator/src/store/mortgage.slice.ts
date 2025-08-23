@@ -12,5 +12,5 @@ export const createMortgageSlice: StateCreator<MortgageSlice> = (set) => ({
 
   onLoadMortages: (mortgages) => set(() => ({ mortgages })),
   addMortgage: (mortgage) =>
-    set(() => ({ mortgages: [{ ...mortgage }, mortgage] })),
+    set((state) => ({ mortgages: [...state.mortgages, mortgage] })),
 });
