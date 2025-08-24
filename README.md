@@ -36,22 +36,19 @@ This project follows a full-stack architecture with clear separation of concerns
     POSTGRES_DB=mortage
    ```
 
-   > [!IMPORTANT]
-   > For docker the POSTGRES_URL must include the name of the container in the `docker-compose.yml`
+> [!IMPORTANT]
+> For docker the POSTGRES_URL must include the name of the container in the `docker-compose.yml`
 
-   ```bash
-   POSTGRES_URL=postgresql://root:root@db-mortgage:5432/mortage
-   ```
+```bash
+  POSTGRES_URL=postgresql://root:root@db-mortgage:5432/mortage
+```
 
-   > [!IMPORTANT]
-   > For local development include `localhost` instead of the name of the container in the `docker-compose.yml`
+> [!IMPORTANT]
+> For local development include `localhost` instead of the name of the container in the `docker-compose.yml`
 
-   ```bash
-   POSTGRES_URL=postgresql://root:root@localhost:5432/mortage
-   ```
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+```bash
+  POSTGRES_URL=postgresql://root:root@localhost:5432/mortage
+```
 
 For the Frontend:
 
