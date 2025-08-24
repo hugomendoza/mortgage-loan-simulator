@@ -50,14 +50,17 @@ This project follows a full-stack architecture with clear separation of concerns
    POSTGRES_URL=postgresql://root:root@localhost:5432/mortage
    ```
 
-   For the Frontend:
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 
-   ```bash
-   cd simulator
-   cp .env.template .env
-   # Edit .env with your API URL
-   VITE_API_URL=http://localhost:3000/api/v1
-   ```
+For the Frontend:
+
+```bash
+cd simulator
+cp .env.template .env
+# Edit .env with your API URL
+VITE_API_URL=http://localhost:3000/api/v1
+```
 
 3. **Start with Docker (Recommended)**
 
