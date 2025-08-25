@@ -35,7 +35,7 @@ export function Card({ debtToIncome, loanToValue, status, reasons }: Mortgage) {
       </div>
       <div
         className={`text-sm overflow-hidden transition-all duration-300 space-y-4 ${
-          open ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0'
+          open ? 'max-h-max opacity-100 mt-2' : 'max-h-0 opacity-0'
         }`}>
         <ul className='pl-6 text-slate-600 font-light'>
           {reasons.map((reason, idx) => (
